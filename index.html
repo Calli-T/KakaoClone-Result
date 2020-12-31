@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Kakao Talk</title>
+</head>
+
+<body>
+
+    <div class="status-bar">
+        <div class="status-bar__column">
+            <span>No Service</span>
+            <i class="fas fa-wifi"></i>
+        </div>
+        <div class="status-bar__column">
+            <span>18:48</span>
+        </div>
+        <div class="status-bar__column">
+            <span>11%</span>
+            <i class="fas fa-battery-full"></i>
+            <i class="fas fa-bolt"></i>
+        </div>
+    </div>
+
+    <header class="welcome-header">
+        <h1 class="welcome-header__title">Welcome to KaKaoTalk</h1>
+        <p class="welcome-header__text">
+            If you have a Kakao Account, log in with your email or phone number.
+        </p>
+    </header>
+
+    <form action="friends.html" method="get" id="login-form">
+        <input name="username" type="text" placeholder="Email or phone number" />
+        <input name="password" type="password" placeholder="Password" />
+        <input type="submit" value="Log In" />
+        <a href="#">Find Kakao Account or Password</a>
+    </form>
+    <!--
+        input의 값은 name으로 구분한다
+        method는 전달방식을 지정할 수 있다
+        form의 action은 어떤 페이지로 data를 보낼건지 지정할 수 있다
+    -->
+
+    <div id="splash-screen">
+        <i class="fas fa-comment"></i>
+   </div>
+
+   <div id="no-mobile">
+       <span>Please expand your screen width</span>
+   </div>
+
+   <script src="https://kit.fontawesome.com/e0536455b7.js" crossorigin="anonymous"></script>
+
+    <!--
+        위의 스크립트는 codekit이라고한다.
+        이콘을 가져오기 위해 fontAwesome이라는 사이트에서 가져오는 주소이다 
+    -->
+    <!--
+        heroicons라는 사이트도있고 가져오는 svg형식 예시는 다음과 같다
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
+                </path>
+            </svg>
+    -->
+    <!--link:css를 입력하고 엔터를 치면 간단히 간단히 링크를 만들 수 있다-->
+    <!--
+        상단바에는, status bar의 column의 width를 33%로 하고 세부조정하는 css hack이 적용되었다
+        추가로, 마진과 정렬이 사용되었다
+        font awesome의 아이콘은 class뒤에 fa-nx를 하면 n배 늘릴 수 있다
+    -->
+</body>
+
+</html>

@@ -1,0 +1,218 @@
+#chat-screen {
+  background-color: #abc1d1;
+  height: 11000vh;
+}
+
+#chat-screen .status-bar {
+  z-index: 2;
+}
+
+#chat-screen .alt-header,
+#chat-screen .status-bar {
+  top: 0;
+  position: fixed;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #abc1d1;
+}
+/*z-index는 div가 위에서 몇 번째인지를 표시한다*/
+/*레이어와도 같다*/
+
+#chat-screen .alt-header {
+  top: 10px;
+  z-index: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.main-chat {
+  margin-top: 120px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /*animation: fadeIn 0.8s linear;*/
+}
+
+.chat__timestamp {
+  color: white;
+  background-color: #889aa9;
+  padding: 15px;
+  border-radius: 25px;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.message-row {
+  width: 100%;
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.message-row img {
+  height: 60px;
+  width: 60px;
+  border-radius: 40%;
+  margin-right: 9px;
+}
+
+.message__author {
+  opacity: 0.8;
+  font-size: 13px;
+  margin-bottom: 11px;
+  display: block;
+}
+
+.message__box {
+  display: flex;
+  align-items: flex-end;
+}
+
+.message__text {
+  background-color: white;
+  padding: 13px;
+  border-radius: 10px;
+  margin-right: 4px;
+
+  /*한쪽 귀퉁이 자르기*/
+  /*border-top-left-radius: 0px;*/
+}
+
+.message__time {
+  opacity: 0.8;
+  font-size: 12px;
+}
+
+.message-row--own {
+  justify-content: flex-end;
+}
+
+.message-row--own .message__text {
+  background-color: var(--yellow);
+  margin-left: 5px;
+  margin-right: 0px;
+
+  /*한쪽 귀퉁이 자르기*/
+  /*border-top-left-radius: 15px;
+  border-top-right-radius: 0px;*/
+}
+
+/*
+flex-childer에게는 order를 주어 정렬 순서를 바꿀 수있다.
+*/
+/*.message-row--own .message__text {
+  order: 1;
+}
+
+.message-row--own .message__time {
+  order: 0;
+}*/
+
+.message-row--own .message__box {
+  flex-direction: row-reverse;
+}
+
+.reply {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 25px;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+
+.reply .reply__column:first-child {
+  width: 10%;
+}
+
+.reply .reply__column:last-child {
+  width: 90%;
+  position: relative;
+}
+
+.reply input {
+  height: 30px;
+  border-radius: 20px;
+  width: 100%;
+  border: var(--standard-border);
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+
+.reply:focus-within input {
+  width: 94vw;
+  transform: translateX(-12%) translateY(-80px);
+}
+
+.reply__column:last-child > i,
+.reply button {
+  position: absolute;
+  right: 0;
+  top: 7px;
+}
+
+.reply__column:last-child > i {
+  right: 40px;
+  top: 10px;
+}
+
+.reply__column button {
+  background-color: var(--yellow);
+  border: non;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.reply__column:last-child button {
+  position: absolute;
+  right: -3px;
+  top: 0px;
+  /*기존 2px*/
+}
+
+.reply__column button:focus,
+.reply__column button:active {
+  outline: none;
+}
+/*
+이때 두번째 컬럼의 인풋의 width를 넓혀주기 위해서는
+부모인 두 칼럼과 reply에 width를 주어야함
+
+두 번째 컬럼에서 이모지와 버튼을 옮기기 위해
+position: absolute; 사용하였음
+*/
+
+.reply .reply__column:first-child,
+.reply .fa-smile-wink,
+.reply button {
+  transition: opacity 0.3 ease-in-out;
+}
+
+.reply .reply__column:first-child,
+.reply .fa-smile-wink,
+.reply button {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.reply:focus-within .reply__column:first-child,
+.reply:focus-within .fa-smile-wink,
+.reply:focus-within button {
+  opacity: 0;
+}
+
+.reply:focus-within {
+  transform: translateY(80px);
+}
